@@ -1,0 +1,9 @@
+<span
+  [ngStyle]="{
+    background: selected ? 'var(--green-primary-variant)' : null,
+    color:  selected ? 'var(--green-primary)' : null,
+  }"
+  (click)="toggleSelected()"
+>
+  {{ label }}
+</span>
