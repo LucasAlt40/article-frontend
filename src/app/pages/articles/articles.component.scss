@@ -1,0 +1,25 @@
+main {
+  margin-top: 1rem;
+
+  .input-tag-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto 1rem;
+    gap: 8px;
+
+    .tags-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 6px;
+      overflow: hidden;
+      overflow-x: scroll;
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

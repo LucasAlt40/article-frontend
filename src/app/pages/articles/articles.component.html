@@ -1,5 +1,11 @@
+<main>
+  <div class="input-tag-container">
+    <app-common-input placeholder="Pesquisar" />
 
-<app-tag label="front end" />
-<app-tag label="front end" />
-<app-tag label="front end" />
-<app-tag label="front end" />
+    <div class="tags-container">
+      @for (item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; track $index) {
+      <app-tag label="Frontend Backend" />
+      }
+    </div>
+  </div>
+</main>

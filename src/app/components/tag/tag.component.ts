@@ -10,11 +10,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TagComponent {
   @Input() label: string = '';
   @Input() selected: boolean = false;
-  @Output() selectedChange = new EventEmitter<boolean>();
+  @Output() selectedChange = new EventEmitter<{
+    label: string;
+    selected: boolean;
+  }>();
 
   toggleSelected() {
     this.selected = !this.selected;
-    this.selectedChange.emit(this.selected);
+    this.selectedChange.emit({ label: this.label, selected: this.selected });
   }
-
 }
