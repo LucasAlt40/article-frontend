@@ -25,4 +25,8 @@
     ></textarea>
     <app-common-button width="40%" label="Comentar" />
   </section>
+
+  @for (comment of comments; track $index) {
+  <app-comment [comment]="comment" />
+  }
 </main>

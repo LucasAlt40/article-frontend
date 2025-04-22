@@ -1,0 +1,28 @@
+<div class="container">
+  <img
+    class="profile-icon"
+    src="https://images.unsplash.com/photo-1611590027211-b954fd027b51?q=80&w=1938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    alt="profile-pic"
+  />
+  <div class="content">
+    <header>
+      <h4>{{ comment.author }}</h4>
+      <span>{{ formattedTime }}</span>
+    </header>
+    <p>{{ comment.content }}</p>
+
+    @if(comment.replies.length > 0) {
+    <div class="comments-container">
+      @for (reply of comment.replies; track $index) {
+      <img
+        class="reply-icon"
+        src="/assets/images/replyIcon.svg"
+        alt="no-data"
+      />
+
+      <app-comment [comment]="reply" />
+      }
+    </div>
+    }
+  </div>
+</div>
