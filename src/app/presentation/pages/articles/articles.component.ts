@@ -6,6 +6,7 @@ import { CategoryService } from '../../../domain/services/category.service';
 import { Category } from '../../../domain/model/category.model';
 import { ArticleService } from '../../../domain/services/article.service';
 import { ArticleList } from '../../../domain/model/article.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -14,8 +15,9 @@ import { ArticleList } from '../../../domain/model/article.model';
   styleUrl: './articles.component.scss',
 })
 export class ArticlesComponent implements OnInit {
-  categoryService: CategoryService = inject(CategoryService);
-  articleService: ArticleService = inject(ArticleService);
+  private readonly categoryService: CategoryService = inject(CategoryService);
+  private readonly articleService: ArticleService = inject(ArticleService);
+  private readonly router: Router = inject(Router);
 
   tags: Category[] = [];
   allArticles: ArticleList[] = [];
@@ -78,5 +80,9 @@ export class ArticlesComponent implements OnInit {
     const startIndex = (page - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedArticles = this.filteredArticles.slice(startIndex, endIndex);
+  }
+
+  navigateArticle(id: number) {
+    this.router.navigate(['/article', id]);
   }
 }

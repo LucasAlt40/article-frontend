@@ -5,3 +5,9 @@ export type Comment = {
   createdAt: Date;
   replies: Comment[];
 };
+
+export type CommentRequest = {
+  author: string;
+  content: string;
+  articleId: number;
+};

@@ -21,9 +21,10 @@
     <textarea
       name="comentario"
       id="comentario"
+      [(ngModel)]="commentContent"
       placeholder="Escreva um comentário..."
     ></textarea>
-    <app-common-button width="40%" label="Comentar" />
+    <app-common-button width="40%" label="Comentar" [actionClick]="addComment" />
   </section>
 
   @for (comment of comments; track $index) {

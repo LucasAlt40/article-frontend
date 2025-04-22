@@ -19,7 +19,10 @@
 
   <section class="articles-container">
     @for (article of paginatedArticles; track $index) {
-    <app-card-article [article]="article" />
+    <app-card-article
+      (click)="navigateArticle(article.id)"
+      [article]="article"
+    />
     } @empty {
     <div class="not-found">
       <img src="/assets/images/noDataImage.png" alt="no-data" />
