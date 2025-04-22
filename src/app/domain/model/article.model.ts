@@ -1,12 +1,15 @@
 import { Category } from './category.model';
 
-export type ArticleList = {
+export type Article = {
   id: number;
   title: string;
   content: string;
   author: string;
   createdAt: Date;
   image: string;
-  resume: string;
   categories: Category[];
+};
+
+export type ArticleList = Article & {
+  resume: string;
 };

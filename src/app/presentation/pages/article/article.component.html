@@ -1,18 +1,19 @@
 <main>
   <header>
-    <h1>Design system principles</h1>
-    <p>Publicado por Ana Moura • 15/01/2025</p>
-    <app-tag label="Frontend" />
+    <h1>{{ article?.title }}</h1>
+    <p>
+      Publicado por {{ article?.author }} •
+      {{ article?.createdAt | date : "dd/MM/yyyy" }}
+    </p>
+    <div class="tag-container">
+      @for (tag of article?.categories; track $index) {
+      <app-tag [label]="tag.name" />
+      }
+    </div>
   </header>
 
   <article>
-    Um design system é uma coleção de componentes reutilizáveis, orientada por
-    padrões claros, que podem ser combinados para construir qualquer número de
-    aplicações. É um documento vivo que evolui ao longo do tempo, conforme as
-    necessidades do produto mudam e novos padrões surgem. Ao manter uma única
-    fonte de verdade, designers e desenvolvedores podem trabalhar de forma mais
-    eficiente, reduzir duplicações e garantir consistência em todos os pontos de
-    contato.
+    {{ article?.content }}
   </article>
 
   <section class="comment-input">

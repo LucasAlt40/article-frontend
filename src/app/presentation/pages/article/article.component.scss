@@ -10,6 +10,11 @@ main {
     gap: 1rem;
     font-weight: 500;
 
+    .tag-container {
+      display: flex;
+      gap: 0.5rem;
+    }
+
     p {
       color: var(--dark-green);
     }
