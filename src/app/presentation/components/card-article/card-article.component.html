@@ -1,0 +1,13 @@
+<div class="container">
+  <img
+    [src]="article.image"
+    alt="imagem artigo"
+  />
+  <div class="content">
+    <header>
+      <h3>{{ article.title }}</h3>
+      <app-tag [label]="article.categories[0].name" paddingTag=" 0.1rem 0.5rem" />
+    </header>
+    <p>{{ article.resume }}</p>
+  </div>
+</div>

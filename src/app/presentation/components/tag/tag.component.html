@@ -1,7 +1,8 @@
 <span
   [ngStyle]="{
     background: selected ? 'var(--green-primary-variant)' : null,
-    color:  selected ? 'var(--green-primary)' : null,
+    color: selected ? 'var(--green-primary)' : null,
+    padding: paddingTag
   }"
   (click)="toggleSelected()"
 >

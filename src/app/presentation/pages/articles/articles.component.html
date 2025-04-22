@@ -1,0 +1,42 @@
+<main>
+  <div class="input-tag-container">
+    <app-common-input
+      placeholder="Pesquisar"
+      [value]="searchText"
+      (valueChange)="onSearchChange($event)"
+    />
+
+    <div class="tags-container">
+      @for (tag of tags; track $index) {
+      <app-tag
+        [label]="tag.name"
+        [selected]="selectedTag === tag.name"
+        (selectedChange)="onTagSelected($event)"
+      />
+      }
+    </div>
+  </div>
+
+  <section class="articles-container">
+    @for (article of paginatedArticles; track $index) {
+    <app-card-article [article]="article" />
+    } @empty {
+    <div class="not-found">
+      <img src="/assets/images/noDataImage.png" alt="no-data" />
+      <h2>Não foram encontrados resultados para essa pesquisa.</h2>
+    </div>
+    }
+  </section>
+
+  <div class="pagination-container">
+    @for (page of pages; track $index) {
+    <button
+      class="button-paginator"
+      (click)="changePage(page)"
+      [class.active]="currentPage === page"
+    >
+      {{ page }}
+    </button>
+    }
+  </div>
+</main>

@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TagComponent {
   @Input() label: string = '';
   @Input() selected: boolean = false;
+  @Input() paddingTag: string = '';
   @Output() selectedChange = new EventEmitter<{
     label: string;
     selected: boolean;

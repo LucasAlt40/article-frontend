@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 72%;
+    gap: 4px;
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    p {
+      color: var(--dark-green);
+    }
+  }
+}
