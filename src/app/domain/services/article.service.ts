@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { Article, ArticleList } from '../model/article.model';
+import { Article, ArticleList, ArticleRequest } from '../model/article.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +17,16 @@ export class ArticleService {
 
   public getById(id: number): Observable<Article> {
     return this.http.get<Article>(`${this.apiUrl}/${id}`);
+  }
+
+  public createArticle(article: ArticleRequest): Observable<Article> {
+    return this.http.post<Article>(`${this.apiUrl}`, article);
+  }
+
+  public updateArticle(
+    id: number,
+    article: ArticleRequest
+  ): Observable<Article> {
+    return this.http.put<Article>(`${this.apiUrl}/${id}`, article);
   }
 }

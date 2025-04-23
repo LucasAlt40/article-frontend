@@ -1,9 +1,14 @@
 <main>
-  <h1>Novo artigo</h1>
+  <h1>{{ article ? "Editar artigo" : "Novo artigo" }}</h1>
 
   <div class="field">
     <label for="title">Título do artigo *</label>
-    <app-common-input placeholder="Título" name="title" [value]="title" />
+    <app-common-input placeholder="Título" name="title" [(value)]="title" />
+  </div>
+
+  <div class="field">
+    <label for="resume">Resumo do artigo *</label>
+    <app-common-input placeholder="Resumo" name="resume" [(value)]="resume" />
   </div>
 
   <div class="field">
@@ -11,12 +16,27 @@
     <app-common-input
       placeholder="URL da imagem"
       name="image"
-      [value]="image"
+      [(value)]="image"
     />
   </div>
 
   <div class="field">
-    <label for="title">Tags *</label>
+    <label for="tags">Categorias *</label>
+    <div class="tags">
+      @for (tag of tags; track $index) {
+      <app-tag
+        [label]="tag.name"
+        [id]="tag.id"
+        [selected]="selectedCategories.includes(tag.id)"
+        (selectedChange)="onCategoryToggled($event)"
+      />
+      }
+    </div>
+    @if (selectedCategories.length === 3) {
+    <small class="limit-note">
+      Você já selecionou 3 categorias (máximo).
+    </small>
+    }
   </div>
 
   <div class="field">
@@ -29,5 +49,8 @@
     ></textarea>
   </div>
 
-  <app-common-button label="Criar artigo" />
+  <app-common-button
+    [label]="article ? 'Atualizar artigo' : 'Criar artigo'"
+    [actionClick]="submit"
+  />
 </main>

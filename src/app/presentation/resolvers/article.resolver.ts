@@ -1,12 +1,11 @@
-// src/app/resolvers/article.resolver.ts
 import { inject } from '@angular/core';
 import { ResolveFn, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, of, forkJoin } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ArticleService } from '../../domain/services/article.service';
-import { Article } from '../../domain/model/article.model';
-import { Comment } from '../../domain/model/comment.model'; // ou o caminho certo do seu tipo
 import { CommentService } from '../../domain/services/comment.service';
+import { Article } from '../../domain/model/article.model';
+import { Comment } from '../../domain/model/comment.model';
 
 export type ArticleWithComments = {
   article: Article;
@@ -29,7 +28,9 @@ export const articleResolver: ResolveFn<ArticleWithComments | null> = (
 
   return forkJoin({
     article: articleService.getById(articleId),
-    comments: commentService.getCommentsByArticleId(articleId),
+    comments: commentService
+      .getCommentsByArticleId(articleId)
+      .pipe(catchError(() => of([]))),
   }).pipe(
     catchError(() => {
       router.navigate(['/articles']);
