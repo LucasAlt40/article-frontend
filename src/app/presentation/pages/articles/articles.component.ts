@@ -7,10 +7,16 @@ import { Category } from '../../../domain/model/category.model';
 import { ArticleService } from '../../../domain/services/article.service';
 import { ArticleList } from '../../../domain/model/article.model';
 import { Router } from '@angular/router';
+import { CommonButtonComponent } from '../../components/common-button/common-button.component';
 
 @Component({
   selector: 'app-articles',
-  imports: [TagComponent, CommonInputComponent, CardArticleComponent],
+  imports: [
+    TagComponent,
+    CommonInputComponent,
+    CardArticleComponent,
+    CommonButtonComponent,
+  ],
   templateUrl: './articles.component.html',
   styleUrl: './articles.component.scss',
 })
@@ -85,4 +91,8 @@ export class ArticlesComponent implements OnInit {
   navigateArticle(id: number) {
     this.router.navigate(['/article', id]);
   }
+
+  navigateToForm = () => {
+    this.router.navigate(['/article-form']);
+  };
 }

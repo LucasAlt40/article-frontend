@@ -1,11 +1,19 @@
 main {
   margin-top: 1rem;
+  padding: 1rem;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .input-tag-container {
     display: flex;
     flex-direction: column;
-    margin: auto 1rem;
+    margin: auto;
     gap: 8px;
+    margin-top: 1rem;
 
     .tags-container {
       display: flex;
@@ -29,7 +37,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1rem;
+    padding: 1rem 0;
 
     .not-found {
       display: flex;

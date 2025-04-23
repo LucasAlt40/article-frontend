@@ -1,4 +1,8 @@
 <main>
+  <header>
+    <h1>Todos os Artigos</h1>
+    <app-common-button label="Criar artigo" [actionClick]="navigateToForm" />
+  </header>
   <div class="input-tag-container">
     <app-common-input
       placeholder="Pesquisar"
@@ -20,6 +24,7 @@
   <section class="articles-container">
     @for (article of paginatedArticles; track $index) {
     <app-card-article
+      style="cursor: pointer"
       (click)="navigateArticle(article.id)"
       [article]="article"
     />
